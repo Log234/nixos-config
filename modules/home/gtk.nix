@@ -17,7 +17,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Maple Mono";
+      name = "FiraCode Nerd Font";
       size = 12;
     };
     theme = {
