@@ -44,7 +44,7 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgb(98971A)";
+        "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
         no_border_on_floating = false;
@@ -79,17 +79,15 @@
       };
 
       decoration = {
-        rounding = 0;
-        # active_opacity = 0.90;
-        # inactive_opacity = 0.90;
-        # fullscreen_opacity = 1.0;
+        rounding = 10;
+        active_opacity = 0.90;
+        inactive_opacity = 0.90;
+        fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
           size = 2;
           passes = 2;
-          # size = 4;
-          # passes = 2;
           brightness = 1;
           contrast = 1.400;
           ignore_opacity = true;
