@@ -1,8 +1,4 @@
 { pkgs, config, ... }:
-let 
-  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix {}; 
-  monolisa-nerd = pkgs.callPackage ../../pkgs/monolisa/monolisa-nerd.nix { inherit monolisa; }; 
-in
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
@@ -16,8 +12,6 @@ in
     noto-fonts-emoji
     fantasque-sans-mono
     maple-mono
-    # monolisa
-    # monolisa-nerd
   ];
 
   gtk = {
