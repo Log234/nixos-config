@@ -21,27 +21,36 @@
       
       font="FiraCode Nerd Font";
 
-      text-wrong-color="FBF1C7FF";
-      text-ver-color="FBF1C7FF";
-      text-clear-color="FBF1C7FF";
-      key-hl-color="fabd2fFF";
-      bs-hl-color="fb4934FF";
-      ring-clear-color="d65d0eFF";
-      ring-wrong-color="cc241dff";
-      ring-ver-color="b8bb26FF";
-      ring-color="689d6aff";
-      line-clear-color="FFFFFF00";
-      line-ver-color="FFFFFF00";
-      line-wrong-color="FFFFFF00";
-      separator-color="FFFFFF00";
-      line-color="FFFFFF00";
-      text-color="FBF1C7FF";
-      inside-color="3C3836DD";
-      inside-ver-color="3C3836DD";
-      inside-clear-color="3C3836DD";
-      inside-wrong-color="3C3836DD";
-      layout-bg-color = "FFFFFF00";
-      layout-text-color = "FBF1C7FF";
+      color="1e1e2e";
+      bs-hl-color="f5e0dc";
+      key-hl-color="a6e3a1";
+      caps-lock-bs-hl-color="f5e0dc";
+      caps-lock-key-hl-color="a6e3a1";
+      ring-color="b4befe";
+      ring-clear-color="f5e0dc";
+      ring-caps-lock-color="fab387";
+      ring-ver-color="89b4fa";
+      ring-wrong-color="eba0ac";
+      text-color="cdd6f4";
+      text-clear-color="f5e0dc";
+      text-caps-lock-color="fab387";
+      text-ver-color="89b4fa";
+      text-wrong-color="eba0ac";
+      layout-text-color="cdd6f4";
+
+      inside-color="00000000";
+      inside-clear-color="00000000";
+      inside-caps-lock-color="00000000";
+      inside-ver-color="00000000";
+      inside-wrong-color="00000000";
+      layout-bg-color="00000000";
+      layout-border-color="00000000";
+      line-color="00000000";
+      line-clear-color="00000000";
+      line-caps-lock-color="00000000";
+      line-ver-color="00000000";
+      line-wrong-color="00000000";
+      separator-color="00000000";
     };
   };
 }

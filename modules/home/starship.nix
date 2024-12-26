@@ -8,34 +8,6 @@
     enableNushellIntegration = true;
 
     settings = {
-      format = lib.concatStrings [
-        "[](color_orange)"
-        "$os"
-        "[](bg:color_yellow fg:color_orange)"
-        "$directory"
-        "[](fg:color_yellow bg:color_aqua)"
-        "$git_branch"
-        "$git_status"
-        "[](fg:color_aqua bg:color_blue)"
-        "$nix_shell"
-        "[](fg:color_blue bg:color_bg3)"
-        "$cmd_duration"
-        "[](fg:color_bg3) "
-      ];
-
-      palette = "gruvbox_dark";
-      palettes.gruvbox_dark = {
-        color_fg0 = "#fbf1c7";
-        color_bg1 = "#3c3836";
-        color_bg3 = "#665c54";
-        color_blue = "#458588";
-        color_aqua = "#689d6a";
-        color_green = "#98971a";
-        color_orange = "#d65d0e";
-        color_purple = "#b16286";
-        color_red = "#cc241d";
-        color_yellow = "#d79921";
-      };
 
       os = {
         disabled = false;
@@ -91,6 +63,8 @@
         success_symbol = "[  ](bold fg:color_green)";
         error_symbol = "[  ](bold fg:color_red)";
       };
-    };
+
+      palette = "catppuccin_mocha";
+    }//builtins.fromTOML(builtins.readFile "${inputs.catppuccin-starship}/palettes/mocha.toml");
   };
 }

@@ -8,6 +8,7 @@
     ./nh.nix
     ./pipewire.nix
     ./program.nix
+    ./smb.nix
     ./security.nix
     ./services.nix
     ./steam.nix
@@ -16,5 +17,6 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 }

@@ -42,11 +42,11 @@
         "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 5;
-        gaps_out = 10;
+        gaps_out = 0;
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
-        "col.inactive_border" = "0x00000000";
-        border_part_of_window = false;
+        "col.inactive_border" = "rgb(896cab) rgb(5a9a90) 15deg";
+        border_part_of_window = true;
         no_border_on_floating = false;
       };
 
@@ -153,8 +153,7 @@
         "$mainMod, D, exec, rofi -show drun || pkill rofi"
         "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-        "$mainMod, Escape, exec, swaylock"
-        "ALT, Escape, exec, hyprlock"
+        "$mainMod, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, power-menu"
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"

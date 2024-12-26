@@ -1,107 +1,104 @@
 { ... }:
 let custom = {
-  font = "FiraCode Nerd Font";
-  font_size = "18px";
-  font_weight = "bold";
-  text_color = "#FBF1C7";
-  background_0 = "#1D2021";
-  background_1 = "#282828";
-  border_color = "#928374";
-  red = "#CC241D";
-  green = "#98971A";
-  yellow = "#FABD2F";
-  blue = "#458588";
-  magenta = "#B16286";
-  cyant = "#689D6A";
-  orange = "#D65D0E";
-  orange_bright = "#FE8019";
-  opacity = "1";
-  indicator_height = "2px";
+    font = "FiraCode Nerd Font";
+    font_size = "15px";
+    font_weight = "bold";
+    text_color = "#cdd6f4";
+    secondary_accent= "89b4fa";
+    tertiary_accent = "f5f5f5";
+    background = "11111B";
+    opacity = "0.98";
 };
 in 
 {
-  programs.waybar.style = with custom; ''
+  programs.waybar.style = ''
+
     * {
-      border: none;
-      border-radius: 0px;
-      padding: 0;
-      margin: 0;
-      font-family: ${font};
-      font-weight: ${font_weight};
-      opacity: ${opacity};
-      font-size: ${font_size};
+        border: none;
+        border-radius: 0px;
+        padding: 0;
+        margin: 0;
+        min-height: 0px;
+        font-family: ${custom.font};
+        font-weight: ${custom.font_weight};
+        opacity: ${custom.opacity};
     }
 
     window#waybar {
-      background: #282828;
-      border-top: 1px solid #928374;
-    }
-
-    tooltip {
-      background: ${background_1};
-      border: 1px solid ${border_color};
-    }
-    tooltip label {
-      margin: 5px;
-      color: ${text_color};
+        background: none;
     }
 
     #workspaces {
-      padding-left: 15px;
+        font-size: 18px;
+        padding-left: 15px;
+        
     }
     #workspaces button {
-      color: ${yellow};
-      padding-left:  5px;
-      padding-right: 5px;
-      margin-right: 10px;
+        color: ${custom.text_color};
+        padding-left:  6px;
+        padding-right: 6px;
     }
     #workspaces button.empty {
-      color: ${text_color};
+        color: #6c7086;
     }
     #workspaces button.active {
-      color: ${orange_bright};
+        color: #b4befe;
     }
 
-    #clock {
-      color: ${text_color};
+    #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock, #battery, #custom-notification {
+        font-size: ${custom.font_size};
+        color: ${custom.text_color};
+    }
+
+    #cpu {
+        padding-left: 15px;
+        padding-right: 9px;
+        margin-left: 7px;
+    }
+    #memory {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+    #disk {
+        padding-left: 9px;
+        padding-right: 15px;
     }
 
     #tray {
-      margin-left: 10px;
-      color: ${text_color};
-    }
-    #tray menu {
-      background: ${background_1};
-      border: 1px solid ${border_color};
-      padding: 8px;
-    }
-    #tray menuitem {
-      padding: 1px;
+        padding: 0 20px;
+        margin-left: 7px;
     }
 
-    #pulseaudio, #network, #cpu, #memory, #disk, #battery, #custom-notification {
-      padding-left: 5px;
-      padding-right: 5px;
-      margin-right: 10px;
-      color: ${text_color};
-    }
-    
     #pulseaudio {
-      margin-left: 15px;
+        padding-left: 15px;
+        padding-right: 9px;
+        margin-left: 7px;
+    }
+    #battery {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+    #network {
+        padding-left: 9px;
+        padding-right: 30px;
+    }
+
+    custom-notification {
+        padding-left: 20px;
+        padding-right: 20px;
     }
     
-    #custom-notification {
-      margin-left: 15px;
-      padding-right: 2px;
-      margin-right: 5px;
+    #clock {
+        padding-left: 9px;
+        padding-right: 15px;
     }
 
     #custom-launcher {
-      font-size: 20px;
-      color: ${text_color};
-      font-weight: bold;
-      margin-left: 15px;
-      padding-right: 10px;
+        font-size: 20px;
+        color: #b4befe;
+        font-weight: ${custom.font_weight};
+        padding-left: 10px;
+        padding-right: 15px;
     }
   '';
 }

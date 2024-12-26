@@ -1,13 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "JetBrainsMono"
-      "FiraCode"
-      "CascadiaCode"
-      "NerdFontsSymbolsOnly"
-    ]; })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
     twemoji-color-font
     noto-fonts-emoji
     fantasque-sans-mono
@@ -21,17 +17,14 @@
       size = 12;
     };
     theme = {
-      name = "Gruvbox-Green-Dark";
-      package = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "green" ];
-        tweakVariants = [ "macos" ];
-      };
+      name = "Drakula";
+      package = pkgs.dracula-theme;
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override {
-        color = "black";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
       };
     };
     cursorTheme = {
