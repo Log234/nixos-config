@@ -11,7 +11,7 @@
   };
   nixpkgs = {
     overlays = [
-      inputs.nur.overlay
+      inputs.nur.overlays.default
     ];
   };
 
@@ -19,7 +19,13 @@
     wget
     git
     cifs-utils
+    libva-utils
+    vscode-fhs
   ];
+
+  environment.etc."systemd/system.conf.d/99-timeout.conf".text = ''
+    DefaultTimeoutStopSec=10s
+  '';
   
   console.keyMap = "no";
   time.timeZone = "Europe/Oslo";

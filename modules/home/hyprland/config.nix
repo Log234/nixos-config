@@ -21,8 +21,9 @@
         "hyprlock"
 
         ## App auto start
-        # "[workspace 1 silent] zen"
-        # "[workspace 2 silent] kitty"
+        "[workspace 1 silent] firefox"
+        "[workspace 2 silent] kitty"
+        "[workspace 3 silent] code"
       ];
 
       input = {
@@ -46,8 +47,28 @@
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "rgb(896cab) rgb(5a9a90) 15deg";
-        border_part_of_window = true;
+        
+        # This option no longer exists
+        # border_part_of_window = true;
         no_border_on_floating = false;
+      };
+
+      # Nvidia-related env vars
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "GBM_BACKEND,nvidia-drm"
+        # Optional VA-API shim hint
+        "NVD_BACKEND,direct"
+        # Optional toolkit hints
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "SDL_VIDEODRIVER,wayland"
+        "GDK_BACKEND,wayland,x11,*"
+      ];
+      
+      cursor = {
+        # Replaces the deprecated WLR_NO_HARDWARE_CURSORS; set true or 2 (auto on Nvidia)
+        no_hardware_cursors = true;
       };
 
       misc = {
@@ -145,7 +166,8 @@
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, [float; center; size 950 650] kitty"
         "$mainMod SHIFT, Return, exec, [fullscreen] kitty"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen'"
+        "$mainMod, C, exec, [fullscreen] code"
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] firefox'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
@@ -160,7 +182,7 @@
         "$mainMod, T, exec, toggle_oppacity"
         "$mainMod, E, exec, nemo"
         "$mainMod SHIFT, B, exec, toggle_waybar"
-        "$mainMod, C ,exec, hyprpicker -a"
+        "$mainMod, S ,exec, hyprpicker -a"
         "$mainMod, W,exec, wallpaper-picker"
         "$mainMod, N, exec, swaync-client -t -sw"
         "$mainMod SHIFT, W, exec, vm-start"
@@ -270,31 +292,29 @@
 
       # windowrule
       windowrule = [
-        "float,Viewnior"
-        "center,Viewnior"
-        "size 1200 800,Viewnior"
-        "float,imv"
-        "center,imv"
-        "size 1200 725,imv"
-        "float,mpv"
-        "center,mpv"
-        "tile,Aseprite"
-        "size 1200 725,mpv"
-        "float,audacious"
-        "pin,rofi"
-        "tile, neovide"
-        "idleinhibit focus,mpv"
-        "float,udiskie"
+        "float,class:^(Viewnior)$"
+        "center,class:^(Viewnior)$"
+        "size 1200 800,class:^(Viewnior)$"
+        "float,class:^(imv)$"
+        "center,class:^(imv)$"
+        "size 1200 725,class:^(imv)$"
+        "float,class:^(mpv)$"
+        "center,class:^(mpv)$"
+        "tile,class:^(Aseprite)$"
+        "size 1200 725,class:^(mpv)$"
+        "float,class:^(audacious)$"
+        "pin,class:^(rofi)$"
+        "tile,class:^(neovide)$"
+        "idleinhibit focus,class:^(mpv)$"
+        "float,class:^(udiskie)$"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Firefox — Sharing Indicator)$"
         "move 0 0,title:^(Firefox — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
-      ];
 
-      # windowrulev2
-      windowrulev2 = [
+        # Rulev2
         "float, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"

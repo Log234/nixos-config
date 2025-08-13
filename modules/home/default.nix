@@ -1,7 +1,5 @@
 {inputs, username, host, ...}: {
   imports = [
-    ./aseprite/aseprite.nix           # pixel art editor
-    ./audacious.nix                   # music player
     ./bat.nix                         # better cat command
     ./browser.nix                     # firefox based browser
     ./btop.nix                        # resouces monitor 
@@ -24,13 +22,12 @@
     ./packages.nix                    # other packages
     ./rofi.nix                        # launcher
     ./scripts/scripts.nix             # personal scripts
-    ./spicetify.nix                   # spotify client
     ./starship.nix                    # shell prompt
     ./swaylock.nix                    # lock screen
     ./viewnior.nix                    # image viewer
     ./waybar                          # status bar
     ./xdg-mimes.nix                   # xdg config
     ./zsh                             # shell
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ];
 }

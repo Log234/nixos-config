@@ -1,4 +1,7 @@
 { inputs, pkgs, ... }: 
+let 
+printrun_c = pkgs.callPackage ../../pkgs/printrun/default.nix {};
+in
 {
   home.packages = (with pkgs; [
     ## CLI utility
@@ -22,7 +25,7 @@
     killall
     lazygit
     libnotify
-	  man-pages					            	  # extra man pages
+    man-pages			      # extra man pages
     mimeo
     mpv                               # video player
     ncdu                              # disk space
@@ -31,6 +34,7 @@
     onefetch                          # fetch utility for git repo
     pamixer                           # pulseaudio command line mixer
     playerctl                         # controller for media players
+    podman
     poweralertd
     programmer-calculator
     ripgrep                           # grep replacement
@@ -65,6 +69,7 @@
     obs-studio
     pavucontrol                       # pulseaudio volume controle (GUI)
     pitivi                            # video editing
+    printrun_c                        # modified version of the package for 3D printing software
     qalculate-gtk                     # calculator
     soundwireserver
     thunderbird
@@ -72,11 +77,19 @@
     winetricks
     wineWowPackages.wayland
     zenity
+    xwayland-satellite
 
     # C / C++
     gcc
     gdb
     gnumake
+
+    # C#
+    (with pkgs.dotnetCorePackages; combinePackages [
+      dotnet_9.sdk
+      aspnetcore_8_0-bin
+    ])
+    azure-functions-core-tools
 
     # Python
     python3
