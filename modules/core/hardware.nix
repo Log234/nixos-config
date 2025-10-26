@@ -17,14 +17,16 @@
       prime = {
         intelBusId = "PCI:2@0:2:0";
         nvidiaBusId = "PCI:1@0:0:0";
+        sync.enable = true;
         offload = {
-          enable = true;
-          enableOffloadCmd = true;
+          enable = false;
+          enableOffloadCmd = false;
         };
       };
       # Optionally select driver line; latest or beta as needed:
       # package = config.boot.kernelPackages.nvidiaPackages.latest; [9]
     };
+    thunderbolt.enable = true;
   };
   hardware.enableRedistributableFirmware = true;
 }

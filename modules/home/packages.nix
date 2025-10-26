@@ -63,6 +63,7 @@ in
     ## GUI Apps
     audacity
     bleachbit                         # cache cleaner
+    bruno
     gimp
     libreoffice
     nix-prefetch-github

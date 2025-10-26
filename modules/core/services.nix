@@ -9,6 +9,10 @@
     };
     fstrim.enable = true;
     tailscale.enable = true;
+    udev = {
+      enable = true;
+      packages = [ pkgs.bolt ];
+    }
   };
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed

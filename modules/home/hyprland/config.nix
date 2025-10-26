@@ -23,7 +23,6 @@
         ## App auto start
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] kitty"
-        "[workspace 3 silent] code"
       ];
 
       input = {
@@ -166,7 +165,8 @@
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, [float; center; size 950 650] kitty"
         "$mainMod SHIFT, Return, exec, [fullscreen] kitty"
-        "$mainMod, C, exec, [fullscreen] code"
+        "$mainMod, C, exec, code"
+        "$mainMod, H, exec, bruno"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] firefox'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
